@@ -31,15 +31,6 @@ struct PathView: View {
                                          lineCap: .round))
             }
             .rotationEffect(.degrees(180) + startAngle)
-            .overlay {
-                ZStack {
-                    Color.blue.frame(width: 2)
-                    Color.blue.frame(height: 2)
-                }
-            }
-        }
-        .background {
-            Color.black
         }
     }
 
@@ -53,10 +44,10 @@ struct PathView: View {
     }
 
     func gradient(size: CGSize) -> some ShapeStyle {
-        AngularGradient(colors: [colour, .white.opacity(0.8), .red],
+        AngularGradient(colors: [colour, .white.opacity(0.5)],
                         center: .center,
                         startAngle: .zero,
-                        endAngle: .degrees(min(360, Double(360) * (trim+0.1) * 2)))
+                        endAngle: .degrees(Double(360) * (trim)))
     }
 }
 
@@ -69,6 +60,7 @@ struct PathView_Previews: PreviewProvider {
                         ZStack {
                             PathView(colour: .red,
                                      thickness: 20,
+                                     startAngle: .degrees(90),
                                      trim: .constant(CGFloat(row) * 0.3 +
                                                      CGFloat(col) * 0.1))
                             .frame(width: 100, height: 100)
@@ -79,5 +71,14 @@ struct PathView_Previews: PreviewProvider {
                 }
             }
         }
+
+        ZStack {
+            ForEach(1..<5) { index in
+                PathView(colour: .red,
+                         thickness: 20,
+                         startAngle: .degrees(Double(360 / 4 * (index-1))),
+                         trim: .constant(0.25))
+            }
+        }.frame(width: 200, height: 200)
     }
 }
