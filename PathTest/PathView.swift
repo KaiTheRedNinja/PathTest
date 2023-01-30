@@ -10,6 +10,8 @@ import SwiftUI
 struct PathView: View {
     @State var colour: Color
     @State var thickness: CGFloat
+    @State var borderThickness: CGFloat = 3
+    @State var spacing: CGFloat = .zero
     @State var startAngle: Angle = .zero
 
     @Binding var trim: CGFloat
@@ -27,7 +29,7 @@ struct PathView: View {
                     .trim(from: startTrim(size: geom.size),
                           to: endTrim(size: geom.size))
                     .stroke(gradient(size: geom.size),
-                            style: .init(lineWidth: thickness * 2 / 3,
+                            style: .init(lineWidth: thickness - borderThickness,
                                          lineCap: .round))
             }
             .rotationEffect(.degrees(180) + startAngle)
@@ -36,7 +38,7 @@ struct PathView: View {
 
     func startTrim(size: CGSize) -> CGFloat {
         let cumf = size.width * .pi
-        return thickness * 5/7 / cumf
+        return (thickness/2 + spacing) / cumf
     }
 
     func endTrim(size: CGSize) -> CGFloat {
@@ -88,6 +90,7 @@ struct PathView_Previews: PreviewProvider {
             ForEach(0..<totalSections, id: \.self) { index in
                 PathView(colour: colours[index%colours.count],
                          thickness: 20,
+                         spacing: 3,
                          startAngle: .degrees(Double(360 / totalSections * index)),
                          trim: .constant(CGFloat(1)/CGFloat(totalSections)))
             }
