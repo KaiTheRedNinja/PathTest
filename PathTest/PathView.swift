@@ -70,14 +70,14 @@ struct PathView_Previews: PreviewProvider {
                 HStack {
                     ForEach(0..<3) { col in
                         ZStack {
-                            PathView(colour: colours[(row * 3 + col)%7],
+                            PathView(colour: colours[(row * 3 + col)%colours.count],
                                      thickness: 20,
                                      startAngle: .degrees(90),
                                      trim: .constant(CGFloat(row) * 0.3 +
                                                      CGFloat(col) * 0.1))
-                            .frame(width: 100, height: 100)
                             Text("\(row * 30 + col * 10)")
                         }
+                        .frame(width: 100, height: 100)
                         .padding(10)
                     }
                 }
@@ -86,7 +86,7 @@ struct PathView_Previews: PreviewProvider {
 
         ZStack {
             ForEach(0..<totalSections, id: \.self) { index in
-                PathView(colour: colours[index],
+                PathView(colour: colours[index%colours.count],
                          thickness: 20,
                          startAngle: .degrees(Double(360 / totalSections * index)),
                          trim: .constant(CGFloat(1)/CGFloat(totalSections)))
