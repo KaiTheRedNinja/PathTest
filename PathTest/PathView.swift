@@ -36,7 +36,7 @@ struct PathView: View {
 
     func startTrim(size: CGSize) -> CGFloat {
         let cumf = size.width * .pi
-        return thickness/2 / cumf
+        return thickness * 5/7 / cumf
     }
 
     func endTrim(size: CGSize) -> CGFloat {
@@ -52,13 +52,25 @@ struct PathView: View {
 }
 
 struct PathView_Previews: PreviewProvider {
+    static let colours: [Color] = [
+        .red,
+        .orange,
+        .yellow,
+        .green,
+        .blue,
+        .purple,
+        .pink
+    ]
+
+    static let totalSections: Int = 7
+
     static var previews: some View {
         VStack {
             ForEach(0..<4) { row in
                 HStack {
                     ForEach(0..<3) { col in
                         ZStack {
-                            PathView(colour: .red,
+                            PathView(colour: colours[(row * 3 + col)%7],
                                      thickness: 20,
                                      startAngle: .degrees(90),
                                      trim: .constant(CGFloat(row) * 0.3 +
@@ -73,11 +85,11 @@ struct PathView_Previews: PreviewProvider {
         }
 
         ZStack {
-            ForEach(1..<5) { index in
-                PathView(colour: .red,
+            ForEach(0..<totalSections, id: \.self) { index in
+                PathView(colour: colours[index],
                          thickness: 20,
-                         startAngle: .degrees(Double(360 / 4 * (index-1))),
-                         trim: .constant(0.25))
+                         startAngle: .degrees(Double(360 / totalSections * index)),
+                         trim: .constant(CGFloat(1)/CGFloat(totalSections)))
             }
         }.frame(width: 200, height: 200)
     }
