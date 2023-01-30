@@ -12,6 +12,7 @@
 		935D312829876937003990A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935D312729876937003990A7 /* Assets.xcassets */; };
 		935D312B29876937003990A7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 935D312A29876937003990A7 /* Preview Assets.xcassets */; };
 		935D31322987697E003990A7 /* PathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935D31312987697E003990A7 /* PathView.swift */; };
+		935F6E5E2987ADB800DB7259 /* AllExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935F6E5D2987ADB800DB7259 /* AllExpensesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		935D312729876937003990A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		935D312A29876937003990A7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		935D31312987697E003990A7 /* PathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathView.swift; sourceTree = "<group>"; };
+		935F6E5D2987ADB800DB7259 /* AllExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExpensesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				935D312329876937003990A7 /* PathTestApp.swift */,
 				935D312529876937003990A7 /* ContentView.swift */,
 				935D31312987697E003990A7 /* PathView.swift */,
+				935F6E5D2987ADB800DB7259 /* AllExpensesView.swift */,
 				935D312729876937003990A7 /* Assets.xcassets */,
 				935D312929876937003990A7 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				935D312629876937003990A7 /* ContentView.swift in Sources */,
 				935D31322987697E003990A7 /* PathView.swift in Sources */,
 				935D312429876937003990A7 /* PathTestApp.swift in Sources */,
+				935F6E5E2987ADB800DB7259 /* AllExpensesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
